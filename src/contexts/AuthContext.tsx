@@ -21,25 +21,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const [user, setUser] = useState<User | undefined>()
     const [token, setToken] = useState<string | undefined>(() => {
-
-        const storedToken = localStorage.getItem(tokenKey)
-
-        return storedToken || undefined;
+        return localStorage.getItem(tokenKey) || undefined;
     })
 
     useEffect(() => {
         if (token) {
             api.defaults.headers.authorization = `Bearer ${token}`
-            api.get('/me').then(({ data }) => setUser(data))
+            api.get('/me')
+                .then(({ data }) => setUser(data))
         }
     }, [token])
 
     async function login(email: string, password: string) {
-        const { data } = await api.post('/login', { email, password })
+        const { data } = await api.post('/login', { email, password });
 
         if (data) {
-            setToken(data.token)
-            localStorage.setItem(tokenKey, data.token)
+            setToken(data.token);
+            localStorage.setItem(tokenKey, data.token);
         }
     }
 
@@ -47,6 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         await api.post('/logout')
         localStorage.removeItem(tokenKey)
         setUser(undefined)
+        setToken(undefined)
     }
 
     return (
