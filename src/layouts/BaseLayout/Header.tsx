@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { UserIcon } from "lucide-react";
@@ -8,13 +8,7 @@ import { useAuth } from "../../contexts/AuthContext.js";
 export function Header() {
 
     const { isLoggedIn, logout } = useAuth();
-    const [authenticated, setAuthenticated] = useState(isLoggedIn);
-
-    useEffect(() => {
-        setAuthenticated(isLoggedIn);
-        console.log("isLoggedIn? ", isLoggedIn)
-    }, [isLoggedIn]);
-
+   
     const navigation = [
         { name: 'Dashboard', href: 'dashboard', current: false },
         { name: 'Metrics', href: 'metrics', current: false },
@@ -41,7 +35,7 @@ export function Header() {
                                         <Link to="/" className=" text-indigo-500 font-boltext-lg shadow-sm">Barbells</Link>
                                     </div>
 
-                                    {authenticated ? (
+                                    {isLoggedIn ? (
                                         <div className="hidden md:block">
                                             <div className="ml-10 flex items-baseline space-x-4">
                                                 {navigation.map((item) => (
@@ -69,7 +63,7 @@ export function Header() {
                                     <div className="ml-4 flex items-center md:ml-6">
 
                                         {/* Profile dropdown */}
-                                        {authenticated ? (<Menu as="div" className="relative ml-3">
+                                        {isLoggedIn ? (<Menu as="div" className="relative ml-3">
                                             <div>
                                                 <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                     <span className="absolute -inset-1.5" />
@@ -110,7 +104,7 @@ export function Header() {
                                     </div>
                                 </div>
 
-                                {authenticated ? (
+                                {isLoggedIn ? (
                                     <div className="-mr-2 flex md:hidden">
                                         {/* Mobile menu button */}
                                         <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
