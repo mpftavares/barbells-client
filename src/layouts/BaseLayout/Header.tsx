@@ -16,13 +16,13 @@ export function Header() {
     }, [isLoggedIn]);
 
     const navigation = [
-        { name: 'Dashboard', href: '/dashboard', current: true },
-        { name: 'Metrics', href: '/metrics', current: false },
-        { name: 'Workouts', href: '/workouts', current: false },
-        { name: 'Exercises', href: '/exercises', current: false },
+        { name: 'Dashboard', href: 'dashboard', current: false },
+        { name: 'Metrics', href: 'metrics', current: false },
+        { name: 'Workouts', href: 'workouts', current: false },
+        { name: 'Exercises', href: 'exercises', current: false },
     ]
     const userNavigation = [
-        { name: 'Your Profile', href: '/profile' },
+        { name: 'Your Profile', href: 'profile' },
     ]
 
     function classNames(...classes: string[]) {

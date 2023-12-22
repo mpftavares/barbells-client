@@ -30,7 +30,7 @@ export function ExercisesForm() {
     async function createExercise(createExerciseSchema: CreateExerciseData) {
 
         await api.post('/exercises', createExerciseSchema)
-        return navigate('/exercises')
+        return navigate('/barbells-client/exercises')
     }
 
     return (

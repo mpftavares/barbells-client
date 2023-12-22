@@ -7,7 +7,7 @@ interface PrivateRouteProps {
 }
 
 export function PrivateRoute({ element }: PrivateRouteProps) {
-  const { isLoggedIn } = useAuth()
+  const { isLoggedIn } = useAuth();
 
-  return isLoggedIn ? element : <Navigate to="/login" />;
+  return isLoggedIn ? element : <Navigate to="/barbells-client/login" />;
 }

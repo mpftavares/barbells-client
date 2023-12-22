@@ -23,7 +23,7 @@ export function ExercisesList() {
                 </div>
 
                 <div className="mx-auto max-w-7xl flex justify-between px-4 py-6 sm:px-6 lg:px-8">
-                    <input className="appearance-none bg-transparent py-4 pl-4 pr-12 text-base text-slate-900 placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6" placeholder="Search exercises by name not working yet 🤷" aria-label="Search components" id="headlessui-combobox-input-15" role="combobox" type="text" aria-expanded="false" aria-autocomplete="list" data-headlessui-state="" value="" />
+                    <input className="appearance-none bg-transparent py-4 pl-4 pr-12 text-base text-slate-900 placeholder:text-slate-600 focus:outline-none sm:text-sm sm:leading-6" placeholder="Search exercises by name not working yet 🤷" aria-label="Search components" id="headlessui-combobox-input-15" role="combobox" type="text" aria-expanded="false" aria-autocomplete="list" data-headlessui-state="" defaultValue="" />
                 </div>
 
 

@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import BaseLayout from "../layouts/BaseLayout/index.js";
 import { Login } from "../pages/Login.js";
 import { Register } from "../pages/Register.js";
@@ -13,9 +13,10 @@ import { PrivateRoute } from "./PrivateRoute.js";
 
 export const router = createBrowserRouter([
     {
-        path: '',
+        path: 'barbells-client',
         element: <BaseLayout />,
         children: [
+            { path: '', element: <Navigate to={"/barbells-client/login"} /> },
             { path: 'login', element: <Login /> },
             { path: 'register', element: <Register /> },
             { path: 'dashboard', element: <PrivateRoute element={<Dashboard />} /> },

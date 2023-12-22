@@ -2,7 +2,7 @@
 	"name": "barbells",
 	"private": true,
 	"version": "0.0.0",
-	"homepage": "https://mpftavares.github.io/barbells-client",
+	"homepage": "https://mpftavares.github.io",
 	"type": "module",
 	"scripts": {
 		"predeploy": "npm run build",

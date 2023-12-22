@@ -14,7 +14,7 @@ type LoginData = z.infer<typeof loginSchema>
 
 export function Login() {
 
-    const { login, user } = useAuth()
+    const { login, isLoggedIn } = useAuth()
     const navigate = useNavigate()
 
     const { handleSubmit, register } = useForm<LoginData>({
@@ -26,10 +26,12 @@ export function Login() {
     }
     
     useEffect(() => {
-        if (user) {
-            navigate('/dashboard');
+        if (isLoggedIn) {
+            navigate('/barbells-client/dashboard');
         }
-    }, [user]);
+    }, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [isLoggedIn]);
 
     return <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
