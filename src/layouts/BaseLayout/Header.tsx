@@ -32,7 +32,7 @@ export function Header() {
                             <div className="flex h-16 items-center justify-between">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <Link to="/" className=" text-indigo-500 font-boltext-lg shadow-sm">Barbells</Link>
+                                        <Link to="/barbells-client" className=" text-indigo-500 font-boltext-lg shadow-sm">Barbells</Link>
                                     </div>
 
                                     {isLoggedIn ? (
