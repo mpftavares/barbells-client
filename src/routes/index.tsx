@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import BaseLayout from "../layouts/BaseLayout/index.js";
 import { Login } from "../pages/Login.js";
 import { Register } from "../pages/Register.js";
@@ -11,21 +11,23 @@ import { Profile } from "../pages/Profile.js";
 import { Logout } from "../pages/Logout.js";
 import { PrivateRoute } from "./PrivateRoute.js";
 
-export const router = createBrowserRouter([
-    {
-        path: 'barbells-client',
-        element: <BaseLayout />,
-        children: [
-            { path: '', element: <Navigate to={"/barbells-client/login"} /> },
-            { path: 'login', element: <Login /> },
-            { path: 'register', element: <Register /> },
-            { path: 'dashboard', element: <PrivateRoute element={<Dashboard />} /> },
-            { path: 'exercises', element: <PrivateRoute element={<ExercisesList />} /> },
-            { path: 'exercises/create', element: <PrivateRoute element={<ExercisesForm />} /> },
-            { path: 'workouts', element: <PrivateRoute element={<WorkoutsList />} /> },
-            { path: 'metrics', element: <PrivateRoute element={<MetricsList />} /> },
-            { path: 'profile', element: <PrivateRoute element={<Profile />} /> },
-            { path: 'logout', element: <Logout /> }
-        ]
-    }
-])
+const routes: RouteObject[] = [
+    { path: '', element: <Navigate to={"/barbells-client/login"} /> },
+    { path: 'login', element: <Login /> },
+    { path: 'register', element: <Register /> },
+    { path: 'dashboard', element: <PrivateRoute element={<Dashboard />} /> },
+    { path: 'exercises', element: <PrivateRoute element={<ExercisesList />} /> },
+    { path: 'exercises/create', element: <PrivateRoute element={<ExercisesForm />} /> },
+    { path: 'workouts', element: <PrivateRoute element={<WorkoutsList />} /> },
+    { path: 'metrics', element: <PrivateRoute element={<MetricsList />} /> },
+    { path: 'profile', element: <PrivateRoute element={<Profile />} /> },
+    { path: 'logout', element: <Logout /> }
+]
+
+const root: RouteObject = {
+    path: 'barbells-client',
+    element: <BaseLayout />,
+    children: routes
+}
+
+export const router = createBrowserRouter([root])
