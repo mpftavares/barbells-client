@@ -24,21 +24,22 @@ export function Login() {
     async function handleLogin(data: LoginData) {
         await login(data.email, data.password)
     }
-    
+
     useEffect(() => {
         if (isLoggedIn) {
             navigate('/barbells-client/dashboard');
         }
-    }, 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [isLoggedIn]);
+    },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [isLoggedIn]);
 
     return <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <h2 className="mt-10 text-center text-2xl leading-9 tracking-tight text-indigo-900">Sign in to your account</h2>
-        </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-10">
+            <div className="mb-4 sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 className="text-center text-2xl leading-9 tracking-tight text-indigo-900">Sign in to your account</h2>
+            </div>
+
             <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit(handleLogin)}>
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-indigo-900">Email</label>
@@ -58,13 +59,15 @@ export function Login() {
 
                 <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
 
-                <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <h2 className="mt-10 text-center text-2xl leading-9 tracking-tight text-indigo-900">Create a new account</h2>
-                </div>
-
-                <Link to="/register" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</Link>
 
             </form>
+
+            <div className="mt-10 mb-4 sm:mx-auto sm:w-full sm:max-w-sm">
+                <h2 className="text-center text-2xl leading-9 tracking-tight text-indigo-900">Create a new account</h2>
+            </div>
+
+            <Link to="/register" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</Link>
+
         </div>
     </div>
 }
