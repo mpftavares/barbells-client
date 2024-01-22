@@ -1,4 +1,4 @@
-import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouteObject, createHashRouter } from "react-router-dom";
 import BaseLayout from "../layouts/BaseLayout/index.js";
 import { Login } from "../pages/Login.js";
 import { Register } from "../pages/Register.js";
@@ -12,7 +12,7 @@ import { Logout } from "../pages/Logout.js";
 import { PrivateRoute } from "./PrivateRoute.js";
 
 const routes: RouteObject[] = [
-    { path: '', element: <Navigate to={"/barbells-client/login"} /> },
+    { path: '', element: <Navigate to={"/login"} /> },
     { path: 'login', element: <Login /> },
     { path: 'register', element: <Register /> },
     { path: 'dashboard', element: <PrivateRoute element={<Dashboard />} /> },
@@ -25,9 +25,9 @@ const routes: RouteObject[] = [
 ]
 
 const root: RouteObject = {
-    path: 'barbells-client',
+    path: '/',
     element: <BaseLayout />,
     children: routes
 }
 
-export const router = createBrowserRouter([root])
+export const router = createHashRouter([root])

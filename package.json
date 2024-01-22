@@ -1,9 +1,9 @@
 {
 	"name": "barbells",
-	"private": true,
+	"private": false,
 	"version": "0.0.0",
-	"homepage": "https://mpftavares.github.io",
 	"type": "module",
+	"homepage": "https://mpftavares.github.io",
 	"scripts": {
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist",

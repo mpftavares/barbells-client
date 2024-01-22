@@ -27,7 +27,7 @@ export function Login() {
 
     useEffect(() => {
         if (isLoggedIn) {
-            navigate('/barbells-client/dashboard');
+            navigate('/dashboard');
         }
     },
         // eslint-disable-next-line react-hooks/exhaustive-deps
