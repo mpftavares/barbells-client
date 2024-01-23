@@ -1,11 +1,11 @@
-import { PlusIcon } from "@heroicons/react/24/outline"
-import { Link } from "react-router-dom"
-import { useExercises } from "../../../hooks/useExercises.js"
-import { ExercisesItem } from "./ExercisesItem.js"
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { useExercises } from "../../../hooks/useExercises.js";
+import { ExercisesItem } from "./ExercisesItem.js";
 
 export function ExercisesList() {
 
-    const { data } = useExercises()
+    const { data } = useExercises();
 
     return (
         <div className="min-h-full">

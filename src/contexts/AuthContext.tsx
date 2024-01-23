@@ -26,7 +26,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     useEffect(() => {
         if (token) {
-            api.defaults.headers.authorization = `Bearer ${token}`
             api.get('/me')
                 .then(({ data }) => setUser(data))
         }
@@ -53,7 +52,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
             user,
             isLoggedIn: !!token,
             login,
-            logout
+            logout,
         }}>
             {children}
         </AuthContext.Provider>
